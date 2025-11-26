@@ -1,0 +1,113 @@
+/* =========================
+   기본 변수 설정
+   ========================= */
+:root {
+  --bg: #e6e7e8;
+  --fg: #ff319c;
+
+  --transition: 500ms ease;
+}
+
+/* =========================
+   리셋 & 기본
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg); /* 기본은 회색 */
+  color: var(--fg);
+  font-family: "IBM Plex Mono", "IBM Plex Sans KR", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: var(--font-small);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition), color var(--transition);
+  overflow: hidden;
+}
+
+/* =========================
+   배경 티저 영상 레이어
+   ========================= */
+/* 전체 화면을 덮는 레이어 */
+.video-wrap {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Lottie 컨테이너 자체가 뷰포트 전체 */
+#teaser {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+}
+
+/* bodymovin이 만든 내부 div도 강제로 꽉 채우기 */
+#teaser > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* SVG도 컨테이너를 100% 채우게 */
+#teaser svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* SVG 내부 요소 */
+/* .video-main svg {
+  width: 100% !important;
+  height: 100% !important;
+} */
+
+.lottie {
+  display: block;
+}
+
+/* =========================
+   메인 래퍼 (텍스트 레이어)
+   ========================= */
+/* 기존 .wra 를 .wrap 으로 변경 */
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  padding: max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.teaser-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+}
+
+/* =========================
+   스플래시 (삭제됨)
+   ========================= */
